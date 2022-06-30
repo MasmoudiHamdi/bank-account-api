@@ -1,4 +1,4 @@
-package com.test.sg.bank.Controller;
+package com.test.sg.bank.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

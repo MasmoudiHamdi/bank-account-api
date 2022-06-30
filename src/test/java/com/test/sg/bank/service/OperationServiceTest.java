@@ -13,6 +13,7 @@ import com.test.sg.bank.entity.Account;
 import com.test.sg.bank.entity.Client;
 import com.test.sg.bank.entity.Operation;
 import com.test.sg.bank.model.NewOperationRequest;
+import com.test.sg.bank.model.OperationEvaluation;
 import com.test.sg.bank.repository.OperationRepository;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -37,7 +38,7 @@ public class OperationServiceTest {
     @Test
     public void should_register_operation() {
         Account account = new Account(1001,50d, client);
-        Operation expectedOperation = new Operation("deposit", 50d, account);
+        Operation expectedOperation = new Operation(OperationEvaluation.DEPOSIT.getValue(), 50d, account);
         NewOperationRequest newOperationRequest = new NewOperationRequest(1001, 50d);
 
         doNothing()
