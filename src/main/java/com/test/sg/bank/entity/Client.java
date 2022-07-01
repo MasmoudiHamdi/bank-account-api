@@ -1,6 +1,8 @@
 package com.test.sg.bank.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.test.sg.bank.model.RoleName;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,16 +30,22 @@ public class Client {
 	@Column(name = "password")
 	private String password;
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "role")
+	private RoleName role;
+
 	public Client() {
 		super();
 	}
 
-	public Client(String firstname, String surname, Integer clientNumber, String email, String password) {
+	public Client(String firstname, String surname, Integer clientNumber, String email, String password,
+			RoleName role) {
 		this.firstname = firstname;
 		this.surname = surname;
 		this.clientNumber = clientNumber;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 
 	public Integer getClientId() {
@@ -87,4 +95,13 @@ public class Client {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public RoleName getRole() {
+		return role;
+	}
+
+	public void setRole(RoleName role) {
+		this.role = role;
+	}
+
 }

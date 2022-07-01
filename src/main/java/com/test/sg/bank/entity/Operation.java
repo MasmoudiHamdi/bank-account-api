@@ -1,6 +1,7 @@
 package com.test.sg.bank.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.test.sg.bank.model.OperationEvaluation;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,8 +15,9 @@ public class Operation {
     @Column(name = "operation_id")
     private Integer operationId;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "operation_type")
-    private String operationType;
+    private OperationEvaluation operationType;
     
     @Column(name = "operation_value")
     private Double operationValue;
@@ -35,7 +37,7 @@ public class Operation {
 		super();
 	}
 
-	public Operation(String operationType, Double operationValue, Account account) {
+	public Operation(OperationEvaluation operationType, Double operationValue, Account account) {
         this.operationType = operationType;
         this.operationValue = operationValue;
         this.account = account;
@@ -51,11 +53,11 @@ public class Operation {
 		this.operationId = operationId;
 	}
 
-	public String getOperationType() {
+	public OperationEvaluation getOperationType() {
 		return operationType;
 	}
 
-	public void setOperationType(String operationType) {
+	public void setOperationType(OperationEvaluation operationType) {
 		this.operationType = operationType;
 	}
 

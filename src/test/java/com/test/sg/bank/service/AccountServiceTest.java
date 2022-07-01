@@ -1,24 +1,25 @@
 package com.test.sg.bank.service;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.test.sg.bank.entity.Account;
 import com.test.sg.bank.entity.Client;
 import com.test.sg.bank.exception.AccountNotFoundException;
+import com.test.sg.bank.model.RoleName;
 import com.test.sg.bank.repository.AccountRepository;
 
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @TestPropertySource(locations="classpath:application-test.properties")
 public class AccountServiceTest {
@@ -32,7 +33,7 @@ public class AccountServiceTest {
     private static Integer ACCOUNT_NUMBER = 1008;
     
     
-    private Client client = new Client("Test", "Test", 2008, "email", "pwd");
+    private Client client = new Client("Test", "Test", 2008, "email", "pwd", RoleName.ROLE_USER);
     private Account account = new Account(ACCOUNT_NUMBER, 100d, client);
 
 

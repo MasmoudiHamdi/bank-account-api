@@ -21,8 +21,8 @@ public class OperationServiceImpl implements OperationService {
     @Autowired
     private AccountService accountService;
 
-    private static final DoubleFunction<String> evaluateOperationType = operation -> operation > 0 ? 
-    		OperationEvaluation.DEPOSIT.getValue() : OperationEvaluation.WITHDRAWAL.getValue();
+    private static final DoubleFunction<OperationEvaluation> evaluateOperationType = operation -> operation > 0 ? 
+    		OperationEvaluation.DEPOSIT : OperationEvaluation.WITHDRAWAL;
 
     @Transactional
     public Operation registerOperation(NewOperationRequest newOperationRequest, Account account) {

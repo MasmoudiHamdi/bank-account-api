@@ -6,7 +6,7 @@ import com.test.sg.bank.entity.Operation;
 
 public class OperationResource {
 
-	private String operationType;
+	private OperationEvaluation operationType;
 	private Double operationValue;
 	private Date date;
 	private Double balance;
@@ -65,7 +65,7 @@ public class OperationResource {
 		return true;
 	}
 
-	public String getOperationType() {
+	public OperationEvaluation getOperationType() {
 		return operationType;
 	}
 
